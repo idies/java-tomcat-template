@@ -1,6 +1,6 @@
 # java-tomcat-template
 
-When you deploy this project in Tomcat, you should be able to go to http://localhost:8080/java-tomcat-template/hello and see the message: "Hello, IDIES".
+When you deploy this project in Tomcat, you should be able to go to `http://localhost:8080/java-tomcat-template/hello` and see the message: "Hello, IDIES".
 
 ## Initial setup
 
