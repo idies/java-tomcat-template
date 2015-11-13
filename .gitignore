@@ -1,0 +1,12 @@
+build
+dist
+
+lib
+lib.catalina
+
+conf/*
+!conf/examples
+
+.project
+.classpath
+.settings
