@@ -108,8 +108,14 @@
     <mkdir dir="${build.home}/WEB-INF/classes"/>
 
     <!-- Copy static content of this web application -->
+    <copy todir="${build.home}">
+      <fileset dir="${web.home}">
+        <exclude name="${web.home}/WEB-INF"/>
+      </fileset>
+    </copy>
+ 
+  	<!-- Process and copy web.xml -->
     <copy todir="${build.home}/WEB-INF" file="${web.home}/WEB-INF/web.xml">
-      <!-- fill in the template -->
       <filterchain>
         <replacetokens>
           <token key="foo_bar" value="${foo.bar}"/>
