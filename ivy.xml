@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="IDIES" module="java-tomcat-template"/>
-    <configurations>
-        <conf name="catalina"/>
-        <conf name="compile"/>
-    </configurations>
-    <dependencies>
-        <dependency org="org.apache.tomcat" name="servlet-api" rev="6.0.36" conf="catalina->default"/>
-        <dependency org="org.apache.tomcat" name="catalina-ant" rev="6.0.36" conf="catalina->default" transitive="false"/>
-        <dependency org="org.apache.tomcat" name="annotations-api" rev="6.0.36" conf="catalina->default"/>
+  <info organisation="IDIES" module="java-tomcat-template"/>
+  <configurations>
+    <conf name="catalina"/>
+    <conf name="compile"/>
+  </configurations>
+  <dependencies>
+    <dependency org="org.apache.tomcat" name="servlet-api" rev="6.0.36" conf="catalina->default"/>
+    <dependency org="org.apache.tomcat" name="catalina-ant" rev="6.0.36" conf="catalina->default" transitive="false"/>
+    <dependency org="org.apache.tomcat" name="annotations-api" rev="6.0.36" conf="catalina->default"/>
 
-        <dependency org="log4j" name="log4j" rev="1.2.17" conf="compile->default"/>
-    </dependencies>
+    <dependency org="log4j" name="log4j" rev="1.2.17" conf="compile->default"/>
+  </dependencies>
 </ivy-module>
