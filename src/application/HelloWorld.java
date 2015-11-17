@@ -12,7 +12,6 @@ public class HelloWorld extends HttpServlet {
   @Override
   public void init(ServletConfig cfg) throws ServletException
   {
-	  
       username = cfg.getServletContext().getInitParameter("username");
   }
 
