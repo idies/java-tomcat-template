@@ -114,7 +114,7 @@
       </fileset>
     </copy>
  
-  	<!-- Process and copy web.xml -->
+    <!-- Process and copy web.xml -->
     <copy todir="${build.home}/WEB-INF" file="${web.home}/WEB-INF/web.xml">
       <filterchain>
         <replacetokens>
