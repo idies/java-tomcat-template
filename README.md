@@ -8,12 +8,11 @@ Copy configuration files from `conf/examples` to `conf` and edit them as needed.
 
 ## Common tasks
 
-*This is subject to change...*
-
-`ant dist` [default] - resolves all dependencies and builds the project. War file is placed in `dist`. 
+`ant dist` - resolves all dependencies and builds the project. War file is placed in `dist`. 
 
 `ant clean` - cleans the `build` and `dist` directories. You may need to do it before running `ant dist`.
 
+`ant all` (default) - clean + dist
 
 ## Eclipse setup
 
