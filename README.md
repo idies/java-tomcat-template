@@ -4,7 +4,7 @@ When you deploy this project in Tomcat, you should be able to go to `http://loca
 
 ## Initial setup
 
-Copy configuration files from `conf/examples` to `conf` and edit them as needed.
+Copy configuration files from `conf.examples` to `conf` and edit them as needed.
 
 ## Common tasks
 

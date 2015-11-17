@@ -5,7 +5,7 @@ lib
 lib.catalina
 
 conf/*
-!conf/examples
+!conf/.gitkeep
 
 .project
 .classpath
