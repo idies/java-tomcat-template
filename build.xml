@@ -22,7 +22,7 @@
   <condition property="ivy.home" value="${env.IVY_HOME}">
     <isset property="env.IVY_HOME"/>
   </condition>
-	
+
   <property name="ivy.home"     value="${user.home}/.ant"/>
   <property name="ivy.jar.dir"  value="${ivy.home}/lib"/>
   <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar"/>
@@ -66,7 +66,7 @@
       <classpath refid="catalina.classpath"/>
     </taskdef>
   </target>
-  
+
 
 <!-- ==================== Compilation Options ============================== -->
 
@@ -110,7 +110,7 @@
     <!-- Copy static content of this web application -->
     <copy todir="${build.home}/WEB-INF" file="${web.home}/WEB-INF/web.xml">
       <!-- fill in the template -->
-    	<filterchain>
+      <filterchain>
         <replacetokens>
           <token key="foo_bar" value="${foo.bar}"/>
         </replacetokens>
@@ -139,15 +139,15 @@
   </target>
 
 
-<!-- ==================== Try ============================================== -->	
+<!-- ==================== Try ============================================== -->
 
-	<target name="try" depends="dist,undeploy,deploy" description="Build and redeploy">
+  <target name="try" depends="dist,undeploy,deploy" description="Build and redeploy">
   </target>
 
 
 <!-- ==================== Resolve ========================================== -->
 
-	<target name="resolve" depends="init-ivy" description="Resolve dependencies">
+  <target name="resolve" depends="init-ivy" description="Resolve dependencies">
     <ivy:retrieve conf="compile"/>
   </target>
 
