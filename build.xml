@@ -110,7 +110,7 @@
     <!-- Copy static content of this web application -->
     <copy todir="${build.home}">
       <fileset dir="${web.home}">
-        <exclude name="${web.home}/WEB-INF"/>
+        <exclude name="WEB-INF/**/*"/>
       </fileset>
     </copy>
  
