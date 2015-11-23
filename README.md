@@ -19,6 +19,6 @@ Copy configuration files from `conf.examples` to `conf` and edit them as needed.
 - Start the "Dynamic Web Project" wizard.
 - Enter the project name, uncheck "Use default location" and enter your repository location instead. **Do not** click "Finish" yet! Go step by step.
 - Set "Default output folder" to `build\WEB-INF\classes`.
-- Set "Content directory" to `web`. Change "Context root" as needed.
+- Set "Content directory" to `build`. Change "Context root" as needed.
 - Now click "Finish".
 - Add jars from `lib`, `lib.local` and `lib.catalina` to your Java Build Path. N.B.: `lib.local` contains the libraries that are not downloaded automatically by Ivy and should go into Git.
