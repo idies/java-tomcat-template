@@ -15,6 +15,12 @@
   <property file="${conf.home}/build.properties"/>
   <property file="${conf.home}/application.properties"/>  
 
+<!-- ==================== Catalina Classpath =============================== -->
+  <path id="catalina.classpath">
+    <fileset dir="${catalina.lib.home}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
 
 <!-- ==================== Ivy Install ====================================== -->
 
@@ -50,11 +56,6 @@
 
   <target name="resolve-catalina" depends="init-ivy" description="Retrieve Catalina dependencies">
     <ivy:retrieve conf="catalina" pattern="${catalina.lib.home}/[artifact](-[classifier]).[ext]"/>
-    <path id="catalina.classpath">
-      <fileset dir="${catalina.lib.home}">
-        <include name="*.jar"/>
-      </fileset>
-    </path>
 
     <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask">
       <classpath refid="catalina.classpath"/>
