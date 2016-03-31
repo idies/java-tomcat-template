@@ -15,12 +15,27 @@
   <property file="${conf.home}/build.properties"/>
   <property file="${conf.home}/application.properties"/>  
 
+
 <!-- ==================== Catalina Classpath =============================== -->
+
   <path id="catalina.classpath">
     <fileset dir="${catalina.lib.home}">
       <include name="*.jar"/>
     </fileset>
   </path>
+
+
+<!-- ==================== Compilation Classpath ============================ -->
+
+	<path id="compile.classpath">
+	  <fileset dir="${lib.home}">
+	    <include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="${local.lib.home}">
+	  	<include name="*.jar"/>
+	  </fileset>
+	</path>
+
 
 <!-- ==================== Ivy Install ====================================== -->
 
@@ -74,18 +89,6 @@
   <property name="compile.debug"       value="true"/>
   <property name="compile.deprecation" value="false"/>
   <property name="compile.optimize"    value="true"/>
-
-
-<!-- ==================== Compilation Classpath ============================ -->
-
-  <path id="compile.classpath">
-    <fileset dir="${lib.home}">
-      <include name="*.jar"/>
-    </fileset>
-    <fileset dir="${local.lib.home}">
-      <include name="*.jar"/>
-    </fileset>
-  </path>
 
 
 <!-- ==================== All ============================================== -->
