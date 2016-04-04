@@ -7,10 +7,10 @@
   <property name="dist.home"          value="${basedir}/dist"/>
   <property name="docs.home"          value="${basedir}/docs"/>
   <property name="src.home"           value="${basedir}/src"/>
-  <property name="lib.home"           value="${basedir}/lib"/>
   <property name="local.lib.home"     value="${basedir}/lib.local"/>
   <property name="catalina.lib.home"  value="${basedir}/lib.catalina"/>
-  <property name="web.home"           value="${basedir}/web"/>
+  <property name="web.home"           value="${basedir}/WebContent"/>
+  <property name="lib.home"           value="${web.home}/WEB-INF/lib"/>
 
   <property file="${conf.home}/build.properties"/>
   <property file="${conf.home}/application.properties"/>  
@@ -48,7 +48,7 @@
 
 <!-- ==================== Resolve Catalina ================================= -->
 
-  <target name="resolve-catalina" depends="init-ivy" description="Retrieve Catalina dependencies">
+	<target name="resolve-catalina" depends="init-ivy" description="Retrieve Catalina dependencies">
     <ivy:retrieve conf="catalina" pattern="${catalina.lib.home}/[artifact](-[classifier]).[ext]"/>
     <path id="catalina.classpath">
       <fileset dir="${catalina.lib.home}">
@@ -81,9 +81,12 @@
     <fileset dir="${lib.home}">
       <include name="*.jar"/>
     </fileset>
+  	<!-- in resolve, copy to lib.home -->
+  	<!--
     <fileset dir="${local.lib.home}">
       <include name="*.jar"/>
     </fileset>
+    -->
   </path>
 
 
@@ -154,7 +157,11 @@
 <!-- ==================== Resolve ========================================== -->
 
   <target name="resolve" depends="init-ivy" description="Resolve dependencies">
-    <ivy:retrieve conf="compile"/>
+    <ivy:retrieve conf="compile" pattern="${lib.home}/[artifact]-[revision].[ext]"/>
+    <copy todir="${lib.home}">
+      <fileset dir="${local.lib.home}"/>
+    </copy>
+ 
   </target>
 
 
