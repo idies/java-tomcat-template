@@ -16,7 +16,14 @@ public class HelloWorld extends HttpServlet {
   {
 	  logger.info("Initializing servlet...");
       username = cfg.getServletContext().getInitParameter("username");
-      logger.error("Oops! An error has occured!");
+      
+      try {
+    	  throw new Exception("Something went wrong.");
+      }
+      catch (Exception ex) {
+    	  logger.error("Oops! An error has occured! "+ ex.getMessage());
+      }
+      
       logger.info("Never mind, it's OK.");
   }
 
