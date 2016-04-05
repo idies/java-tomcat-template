@@ -14,14 +14,14 @@ public class HelloWorld extends HttpServlet {
   @Override
   public void init(ServletConfig cfg) throws ServletException
   {
-	  logger.info("Initializing servlet...");
+      logger.info("Initializing servlet...");
       username = cfg.getServletContext().getInitParameter("username");
       
       try {
-    	  throw new Exception("Something went wrong.");
+          throw new Exception("Something went wrong.");
       }
       catch (Exception ex) {
-    	  logger.error("Oops! An error has occured! "+ ex.getMessage());
+          logger.error("Oops! An error has occured! " + ex.getMessage());
       }
       
       logger.info("Never mind, it's OK.");
@@ -30,10 +30,10 @@ public class HelloWorld extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
   {
-	  // This message will not appear in the log by default, 
-	  // because the Root logger level is set to "info".
-	  logger.debug("GET request received.");
-	  
+      // This message will not appear in the log by default, 
+      // because the Root logger level is set to "info".
+      logger.debug("GET request received.");
+      
       response.setContentType("text/html");
 
       PrintWriter out = response.getWriter();
