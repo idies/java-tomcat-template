@@ -1,5 +1,8 @@
 package rest;
 
+import java.net.URL;
+import java.net.URLEncoder;
+
 import javax.ws.rs.PathParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,31 +16,50 @@ public class Hello {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String sayPlainTextHello() {
-		return "Hello World from a RESTful Jersey!";
+		return message(MediaType.TEXT_PLAIN,"World");
 	}
 
 	@GET
 	@Produces(MediaType.TEXT_XML)
 	public String sayXMLHello() {
-		return "<?xml version=\"1.0\"?>" + "<hello> Hello World from a RESTful Jersey"
-				+ "</hello>";
+		return message(MediaType.TEXT_XML,"World");
 	}
 
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String sayHtmlHello() {
-		return "<html> " + "<title>" + "Hello World from a RESTful Jersey"
-				+ "</title>" + "<body><h1>" + "Hello World from a RESTful Jersey"
-				+ "</body></h1>" + "</html> ";
+		return message(MediaType.TEXT_HTML,"World");
+	}
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String sayJsonHello() {
+		return message(MediaType.APPLICATION_JSON,"World");
 	}
 	
 
 	@GET
 	@Path("{name}")
 	public String sayHtmlHello(@PathParam("name") String name) {
-		return "<html> " + "<title>" + "Hello "+name
-				+ "</title>" + "<body><h1>" + "Hello "+name 
-				+ "</body></h1>" + "</html> ";
+		return message(MediaType.TEXT_HTML,name);
 	}
-	
+	private String message(String mime, String _name) {
+		
+		String name=_name;
+		try {
+			URLEncoder.encode(_name,"UTF-8");
+		} catch(Exception e){
+			name = _name;
+		}
+		if(MediaType.TEXT_XML.equals(mime)){
+			return String.format("<?xml version=\"1.0\"?>" + "<hello> Hello %s from a RESTful Jersey"
+					+ "</hello>",name);
+		} else if(MediaType.TEXT_HTML.equals(mime)){
+			return 	String.format("<html> <title>Hello %s</title>"+
+		                "<body><h1>Hello %s</body></h1></html> ",name,name);
+		} else if(MediaType.APPLICATION_JSON.equals(mime)){
+			return 	String.format("{\"message\":\"%s\"} ",name);
+		} else {
+			return String.format("Hello %s from a RESTful Jersey!",name);
+		}
+	}
 }
