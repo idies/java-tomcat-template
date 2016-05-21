@@ -12,20 +12,20 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class MvcController {
     
-	private static final Logger logger = LogManager.getLogger("Foo");
-	
-	@Autowired
-	ServletContext context;
-	
+    private static final Logger logger = LogManager.getLogger("Foo");
+    
+    @Autowired
+    ServletContext context;
+    
     @RequestMapping("/hello")
     public ModelAndView greeting() {
-    	logger.info("MVC info...");
-    	logger.debug("MVC debug...");
-    	logger.error("MVC error...");
-    	
-    	String username = context.getInitParameter("username");
-		ModelAndView view = new ModelAndView("HelloWorld");
-		view.addObject("message", String.format("Hello %s", username));
-		return view;
+        logger.info("MVC info...");
+        logger.debug("MVC debug...");
+        logger.error("MVC error...");
+        
+        String username = context.getInitParameter("username");
+        ModelAndView view = new ModelAndView("HelloWorld");
+        view.addObject("message", String.format("Hello %s", username));
+        return view;
     }
 }

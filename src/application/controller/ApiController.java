@@ -13,18 +13,18 @@ import application.model.Message;
 @RestController
 public class ApiController {
 
-	private static final Logger logger = LogManager.getLogger("Foo");
-	 
-	@Autowired
-	ServletContext context;
-	
+    private static final Logger logger = LogManager.getLogger("Foo");
+     
+    @Autowired
+    ServletContext context;
+
     @RequestMapping("/api/hello")
     public Message greeting() {
-    	logger.info("API info...");
-    	logger.debug("API debug...");
-    	logger.error("API error...");
-    	
-    	String username = context.getInitParameter("username");
+        logger.info("API info...");
+        logger.debug("API debug...");
+        logger.error("API error...");
+        
+        String username = context.getInitParameter("username");
         return new Message(String.format("Hello %s", username));
     }
 }
