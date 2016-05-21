@@ -10,3 +10,5 @@ conf/*
 .project
 .classpath
 .settings
+
+/WebContent/WEB-INF/web.xml

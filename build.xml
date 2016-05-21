@@ -127,19 +127,37 @@
     <!-- Copy static content of this web application -->
     <copy todir="${build.home}">
       <fileset dir="${web.home}">
-        <exclude name="WEB-INF/**/*"/>
+        <!-- <exclude name="WEB-INF/**/*"/> -->
       </fileset>
     </copy>
  
     <!-- Process and copy web.xml -->
-    <copy todir="${build.home}/WEB-INF" file="${web.home}/WEB-INF/web.xml">
+  	<macrodef name="mcopy">
+  	  <attribute name="todir"/>
+  	  <sequential>
+  	    <copy todir="@{todir}" file="${basedir}/web.xml" overwrite="true">
+  	      <filterchain>
+  	        <replacetokens>
+  	          <token key="foo_bar" value="${foo.bar}"/>
+  	        </replacetokens>
+  	      </filterchain>
+  	    </copy>
+  	  </sequential>
+  	</macrodef>
+
+  	<mcopy todir="${web.home}/WEB-INF"/>
+  	<mcopy todir="${build.home}/WEB-INF"/>
+  	
+  	<!--
+    <copy todir="${web.home}/WEB-INF" file="${basedir}/web.xml">
       <filterchain>
         <replacetokens>
           <token key="foo_bar" value="${foo.bar}"/>
         </replacetokens>
       </filterchain>
     </copy>
-
+    -->
+  	
     <!-- Compile Java classes as necessary -->
     <javac  srcdir="${src.home}"
             destdir="${build.home}/WEB-INF/classes"
