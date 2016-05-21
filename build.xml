@@ -69,7 +69,7 @@
 
 <!-- ==================== Resolve Catalina ================================= -->
 
-	<target name="resolve-catalina" depends="init-ivy" description="Retrieve Catalina dependencies">
+  <target name="resolve-catalina" depends="init-ivy" description="Retrieve Catalina dependencies">
     <ivy:retrieve conf="catalina" pattern="${catalina.lib.home}/[artifact](-[classifier]).[ext]"/>
 
     <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask">
@@ -96,8 +96,8 @@
     <fileset dir="${lib.home}">
       <include name="*.jar"/>
     </fileset>
-  	<!-- in resolve, copy to lib.home -->
-  	<!--
+    <!-- in resolve, copy to lib.home -->
+    <!--
     <fileset dir="${local.lib.home}">
       <include name="*.jar"/>
     </fileset>
@@ -130,34 +130,24 @@
         <!-- <exclude name="WEB-INF/**/*"/> -->
       </fileset>
     </copy>
- 
-    <!-- Process and copy web.xml -->
-  	<macrodef name="mcopy">
-  	  <attribute name="todir"/>
-  	  <sequential>
-  	    <copy todir="@{todir}" file="${basedir}/web.xml" overwrite="true">
-  	      <filterchain>
-  	        <replacetokens>
-  	          <token key="foo_bar" value="${foo.bar}"/>
-  	        </replacetokens>
-  	      </filterchain>
-  	    </copy>
-  	  </sequential>
-  	</macrodef>
 
-  	<mcopy todir="${web.home}/WEB-INF"/>
-  	<mcopy todir="${build.home}/WEB-INF"/>
-  	
-  	<!--
-    <copy todir="${web.home}/WEB-INF" file="${basedir}/web.xml">
-      <filterchain>
-        <replacetokens>
-          <token key="foo_bar" value="${foo.bar}"/>
-        </replacetokens>
-      </filterchain>
-    </copy>
-    -->
-  	
+    <!-- Process and copy web.xml -->
+    <macrodef name="copyconf">
+      <attribute name="todir"/>
+      <sequential>
+        <copy todir="@{todir}" file="${basedir}/web.xml" overwrite="true">
+          <filterchain>
+            <replacetokens>
+              <token key="foo_bar" value="${foo.bar}"/>
+            </replacetokens>
+          </filterchain>
+        </copy>
+      </sequential>
+    </macrodef>
+
+    <copyconf todir="${web.home}/WEB-INF"/>
+    <copyconf todir="${build.home}/WEB-INF"/>
+
     <!-- Compile Java classes as necessary -->
     <javac  srcdir="${src.home}"
             destdir="${build.home}/WEB-INF/classes"
