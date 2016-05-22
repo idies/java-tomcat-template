@@ -11,7 +11,7 @@
       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="application" />
+    <context:component-scan base-package="application.controller" />
     <context:annotation-config />
     <mvc:annotation-driven />
 
