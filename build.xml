@@ -7,8 +7,8 @@
   <property name="dist.home"          value="${basedir}/dist"/>
   <property name="docs.home"          value="${basedir}/docs"/>
   <property name="src.home"           value="${basedir}/src"/>
-  <property name="local.lib.home"     value="${basedir}/lib.local"/>
-  <property name="catalina.lib.home"  value="${basedir}/lib.catalina"/>
+  <property name="local.lib.home"     value="${basedir}/lib-local"/>
+  <property name="catalina.lib.home"  value="${basedir}/lib-catalina"/>
   <property name="web.home"           value="${basedir}/WebContent"/>
   <property name="lib.home"           value="${web.home}/WEB-INF/lib"/>
 

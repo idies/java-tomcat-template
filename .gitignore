@@ -2,7 +2,7 @@ build
 dist
 
 lib
-lib.catalina
+lib-catalina
 
 conf/*
 !conf/.gitkeep
