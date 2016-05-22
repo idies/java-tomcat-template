@@ -25,18 +25,6 @@
   </path>
 
 
-<!-- ==================== Compilation Classpath ============================ -->
-
-  <path id="compile.classpath">
-    <fileset dir="${lib.home}">
-      <include name="*.jar"/>
-    </fileset>
-    <fileset dir="${local.lib.home}">
-      <include name="*.jar"/>
-    </fileset>
-  </path>
-
-
 <!-- ==================== Ivy Install ====================================== -->
 
   <property name="ivy.install.version" value="2.4.0"/>
