@@ -5,7 +5,7 @@ lib
 lib-catalina
 
 conf/*
-!conf/.gitkeep
+!conf/web.xml
 
 .project
 .classpath
